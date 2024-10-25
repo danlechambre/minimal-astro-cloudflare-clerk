@@ -7,5 +7,10 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   integrations: [clerk()],
   output: 'hybrid',
-  adapter: cloudflare()
+  adapter: cloudflare(),
+  vite: {
+    ssr: {
+      external: ['node:async_hooks'],
+    },
+  },
 });
